@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="section">
+	<div class="section-heading">
+		{% if curriculum.id > 0 %}
+			<h1>EDIT CURRICULUM</h1>
+		{% else %}
+			<h1>NEW CURRICULUM</h1>
+		{% endif %}
+	</div>
+
+	<div class="section-content">
+		<div class="section-content-inner clearfix">
+			<div class="column-container">
+				{% if curriculum.id > 0 and showSaveMsg %}
+					<div id="msgAndCheckSection">
+				{% else %}
+					<div id="msgAndCheckSection" style="display: none">
+				{% endif %}
+					<div id="msgSection">
+						<img id="curriculumSavedCheck" src="/media/images/icons/check.gif" />
+						<span id="curriculumSavedMsg">
+							Curriculum saved. Now click on "Create New Lesson" to create individual lessons.
+						</span>
+					</div>
+				</div>
+		</div>
+
+			<div class="column-container">
+				<div class="two-third sep-big">
+					<div class="clearfix" id="contact-form">
+						{% if curriculum.id > 0 %}
+							<form id="curriculumForm" action="/curriculum/saveExisting/" method="POST">
+						{% else %}
+							<form id="curriculumForm" action="/curriculum/saveNew/" method="POST">
+						{% endif %}
+							
+							<div class="form-group text-field">
+								<label for="curriculumName">Curriculum Name</label>
+								<input type="text" id="curriculumName" name="name" value="{{curriculum.name}}"></input>
+							</div>
+		
+							<div class="form-group text-field">
+								<label for="passPhrase">Pass Phrase (optional)</label>
+								<input type="text" id="passPhrase" name="pass_phrase" value="{{curriculum.pass_phrase}}"></input>
+							</div>
+		
+							<div class="form-group">
+								<label for="description">Description</label>
+								<textarea cols="4" rows="6" name="description" id="description"></textarea>
+							</div>
+							
+							<a href="#" id="cancelCurriculumButton" class="button button-type5">Cancel</a>
+							{% if curriculum.id > 0 %}
+								<a href="#" id="saveExistingCurriculumButton" class="button button-type8">Save</a>
+							{% else %}
+								<a href="#" id="saveNewCurriculumButton" class="button button-type8">Save</a>
+							{% endif %}
+						
+							{% if curriculum.id > 0 %}	
+								<input type="hidden" value="{{curriculum.id}}" name="id"></input>
+							{% endif %}
+					</form>
+				</div>
+			</div>
+
+			<div class="one-third">
+				{% if curriculum.id > 0 %}
+					<div id="createLessonsSection">
+						<h2><a href="/lesson/new/{{curriculum.id}}/">Create New Lesson</a></h2>
+					</div>
+					<div id="existingAttachedLessons">
+						<h2>Existing Lessons</h2>
+						{% if not lessons %}
+							No lessons have been created yet.
+						{% endif %}
+						{% for l in lessons %}
+							<a href="/lesson/show/{{l.id}}/">{{l.subject}}</a>
+							<br />
+						{% endfor %}
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

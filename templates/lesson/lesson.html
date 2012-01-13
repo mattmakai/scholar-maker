@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="section">
+	<div class="section-heading">
+		{% if lesson.id > 0 %}
+			<h1>Edit Existing Lesson</h1>
+		{% else %}
+			<h1>Create New Lesson</h1>
+		{% endif %}
+	</div>
+	
+	<div class="section-content">
+		<div class="section-content-inner clearfix">
+			<div class="column-container">
+				<div class="two-third sep-big">
+					<div class="clearfix" id="contact-form">
+					{% if lesson.id > 0 %}
+						<form id="lessonForm" action="/lesson/saveExisting/" method="POST">
+					{% else %}
+						<form id="lessonForm" action="/lesson/saveNew/" method="POST">
+					{% endif %}
+					<div class="form-group">
+						<label for="subjectTextBox">Subject</label>
+						<textarea rows="2" id="subjectTextBox" name="subject">{{lesson.subject}}</textarea>
+					</div>
+					
+					<div class="form-group">
+						<label for="lessonTextBox">Lesson</label>
+						<textarea rows="10" id="lessonTextBox" name="lesson">{{lesson.lesson}}</textarea>
+					</div>
+
+					<div class="form-group">
+						<label for="discussionTextBox">Discussion Questions</label>
+						<textarea rows="10" id="discussionTextBox" name="discussion_questions">{{ lesson.discussion_questions }}</textarea>
+					</div>
+		
+						<input type="hidden" value="{{lesson.id}}" name="id" />
+						<input type="hidden" value="{{curriculum_id}}" name="curriculum_id" id="curriculumId" />
+
+						<a href="#" id="cancelLessonButton" class="button button-type5">Cancel</a>
+						{% if lesson.id > 0 %}
+							<a href="#" id="saveExistingLessonButton" class="button button-type8">Save</a>
+						{% else %}
+							<a href="#" id="saveNewLessonButon" class="button button-type8">Save</a>
+						{% endif %}
+				</form>
+		</div>	
+			</div>
+					<div class="one-third">
+							Subject: The name of the subject.
+					</div>
+				</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ScholarMaker - Learns Well With Others</title>
+<link rel="stylesheet" type="text/css" href="/media/css/general.css"/>
+<link rel="stylesheet" type="text/css" href="/media/css/nivo-slider.css"/>
+<link rel="stylesheet" type="text/css" href="/media/css/prettyPhoto.css" />
+<script type="text/javascript" src="/media/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="/media/js/jquery.nivo.slider.js"></script>
+<script type="text/javascript" src="/media/js/jquery.cycle.all.min.js"></script>
+<script type="text/javascript" src="/media/js/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="/media/js/jquery.scrollTo-1.4.2.min.js"></script>
+<script type="text/javascript" src="/media/js/swfobject.js"></script>
+<script type="text/javascript" src="/media/js/cufon-yui.js?v=1.09i"></script>
+<script type="text/javascript" src="/media/js/League_Gothic_400.font.js"></script>
+<script type="text/javascript" src="/media/js/functions.js"></script>
+
+</head>
+
+<body class="page-bg-type3">
+	<a name="top" id="top"></a>
+    
+    <div id="pattern" class="pattern-type2"></div>
+    
+	<!-- begin of <#header> -->
+	<div id="header">
+    
+    	<div id="header-bg"></div>
+    
+    	<div id="header-inner">
+    	
+            <!-- begin of <#logo> -->
+            <div id="logo"><a href="/"><img src="/media/images/content/logo.png" alt="ScholarMaker"/></a></div><!-- end of <#logo> -->
+            
+            <!-- begin of <.navigation> -->
+            <ul class="navigation" style="margin-right: 110px;">
+               <li><a href="#top">Home</a></li>
+               <li><a href="#screenshots">Screenshots</a></li>
+               <li><a href="#examples">Examples</a></li>
+               <li><a href="#contact">Contact</a></li>
+            </ul><!-- end of <.navigation> -->
+            <ul class="nav">
+					<li><a href="/curriculum/new/">Get Started!</a></li>
+            </ul>
+        </div>
+    </div>
+	<!-- end of <#header> -->
+    
+    <!-- begin of <#content> -->
+    <div id="content">
+
+        <!-- begin of <#about> -->
+        <div class="section" id="about">
+            
+            <div class="section-heading">
+            	<h1>SCHOLAR MAKER</h1>
+	        </div>
+            
+            <div class="section-content">
+                <div class="section-content-inner">
+                    <img class="border align-left" src="/media/images/content/students-and-professor.jpg" alt="New curriculum screenshot" />
+                  	<h2>What is it?</h2>
+								<p>Scholar Maker creates and shares beautiful lesson plans.
+								In just a few minutes you can create lesson plans and share them as a website or as an Adobe PDF file.
+								</p>
+							<h2>Why do I care?</h2>
+								<p>It's easy to learn in groups when you have a lesson plan. Scholar Maker quickly creates that lesson plan and allows you to share it with your group.
+								</p>
+							<h2>How do I use Scholar Maker?</h2>
+									<p><a href="/curriculum/new/">Get Started!</a> There's no need to log in! Or see a list of <a href="/curriculum/list/">existing lessons</a> first.</p>
+                  <div class="clearboth"></div>
+                </div>
+            </div>
+        </div><!-- end of <#about> -->   
+
+        <!-- begin of <#slider> -->
+        <div class="section" id="screenshots">
+               <div class="section-heading">
+            		<h1>SCREENSHOTS</h1>
+            	</div>
+        
+            <div id="slider-container">
+                <div id="slider">
+                    <img src="/media/images/content/screenshot_1.png" alt="ScholarMaker curriculum list" title="Curriculum list"/>
+                    <img src="/media/images/content/screenshot_2.png" alt="" title="Creating a new curriculum" />
+                    <img src="/media/images/content/screenshot3.png" alt="" title="Editing an existing lesson plan"/>
+                </div>
+            </div>
+        </div><!-- end of <#slider> -->        
+
+        <!-- begin of <#examples> -->
+        <div class="section" id="examples">
+            
+            <div class="section-heading">
+                <h1>EXAMPLES</h1>
+          	</div>
+
+            <div class="section-content">
+                <div class="section-content-inner clearfix">
+                	<div class="column-container">
+                  	<div class="one-third sep">
+                  		<p>
+												{% for ex in curriculum_list1 %}
+													<a href="/curriculum/show/{{ex.id}}/">{{ex.name}}</a>
+													<br/>
+												{% endfor %}
+											</p>
+                  	</div>
+                  	<div class="one-third sep">
+                  		<p>
+												{% for ex in curriculum_list2 %}
+													<a href="/curriculum/show/{{ex.id}}/">{{ex.name}}</a>
+													<br/>
+												{% endfor %}
+											</p>
+                  	</div>                  	
+                  	<div class="one-third">
+											<p>
+												{% for ex in curriculum_list3 %}
+													<a href="/curriculum/show/{{ex.id}}/">{{ex.name}}</a>
+													<br/>
+												{% endfor %}
+											</p>
+										</div>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+      <!-- begin of <#contact> -->
+      <div class="section" id="contact">
+            
+        <div class="section-heading">
+            <h1>CONTACT</h1>
+		</div>
+            
+            <div class="section-content">
+              <div class="section-content-inner clearfix">
+        
+                <div class="two-third sep-big">
+                  <h2>Send feedback</h2>
+                        <div class="clearfix" id="contact-form">
+									<p>I created Scholar Maker as a quick side project. I would love to hear both your positive and negative feedback on the application. Thank you!</p>
+                  <form action="#">
+                            
+                            <div class="form-group text-field">
+                                <label for="c-name">Name</label>
+                                <input type="text" name="c-name" id="c-name" value="" />
+                            </div>
+
+                            <div class="form-group text-field">
+                                <label for="c-organization">Organization (optional)</label>
+                                <input type="text" name="c-organization" id="c-organization" value="" />
+                            </div>
+                            
+                            <div class="clearboth"></div>
+
+                            <div class="form-group text-field">
+                                <label for="c-email">E-mail</label>
+                                <input type="text" name="c-email" id="c-email" value="" />
+                            </div>
+        
+                            <div class="form-group text-field">
+                            	<label for="c-telephone">Telephone (optional)</label>
+                                <input type="text" name="c-telephone" id="c-telephone" value="" />
+                            </div>
+        
+                            <div class="form-group">
+                                  <label for="c-message">Message</label>
+                                  <textarea cols="4" rows="6" name="c-message" id="c-message"></textarea>
+                            </div>
+                            
+                            <div class="clearboth"></div>
+                                
+                            <p><a class="button button-type2" href="#">Submit</a></p>
+        
+                          </form>
+                            
+                        </div>
+                    </div>          
+        
+                    <div class="one-third">
+                        <h2>My Contact Information</h2>
+                        <div id="contact-info">
+                        
+                            <p>Matthew Makai<br/><a href="http://www.mattmakai.com/">About Me</a><br/>Arlington, Virginia 22203<br/><a href="mailto:makaimc@gmail.com">makaimc@gmail.com</a></p>                    	
+                    <div id="contact-map">
+											<iframe width="219" height="160" frameborder="3" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=arlington,+va&amp;sll=37.0625,-95.677068&amp;sspn=19.231693,39.638672&amp;ie=UTF8&amp;hq=&amp;hnear=Arlington,+Virginia&amp;z=12&amp;ll=38.87997,-77.10677&amp;output=embed"></iframe>
+                            </div>
+
+                        </div>
+
+                        <div id="social-network" class="clearfix">
+                            <a href="http://www.linkedin.com/matthewmakai" target="_blank"><img src="/media/images/content/social_icon_linkedin.png" alt="Linkedin" /></a>
+                            <a href="http://twitter.com/makaimc" target="_blank"><img src="/media/images/content/social_icon_twitter.png" alt="Twitter" /></a>
+                        </div> 
+
+                    </div>     
+        
+                    <div class="clearboth"></div>
+        
+                </div>
+            </div>
+        </div><!-- end of <#contact> -->   
+            
+    </div><!-- end of <#content> -->
+    
+<script type="text/javascript"> Cufon.now(); </script>
+
+</body>
+</html>
+
